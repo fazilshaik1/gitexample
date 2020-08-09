@@ -26,27 +26,21 @@ public class BookMain {
 			Book b4 = new Book(372);
 			final String name1="Core Java", name2="Macbeth", name3="Sherlock Holmes", name4="Programming in Ansi C";
 			ItBook book1 = new ItBook("B-id1", name1,b1, author1, 500, "English", 8.0);
-			service.add(book1);
+			service.addBook(book1);
 			book1.getAuthor();
-			String id1 = book1.getId();
 			FictionBook book2 = new FictionBook("B-id2", name2,b2, author2, 600,"Lady Macbeth" );
-			service.add(book2);
+			service.addBook(book2);
 			book2.getAuthor();
-			String id2 = book2.getId();
 			FictionBook book3 = new FictionBook("B-id3", name3,b3, author3, 700,"Benedict" );
-			service.add(book3);
+			service.addBook(book3);
 			book3.getAuthor();
-			String id3 = book3.getId();
 			ItBook book4 = new ItBook("B-id4", name4,b4, author4, 400, "English", 1.0);
-			service.add(book4);
+			service.addBook(book4);
 			book4.getAuthor();
-			String id4 = book4.getId();
 			
-			service.delete(book4.getBook());
-			service.updateCost(book3.getId(), 2000);
+			service.deleteBook(book4.getBook());
+			service.updateBookCost(book3.getId(), 2000);
 			
-			Book fetched = service.findById(id1);
-			displayBook(fetched);
 			
 			System.out.println("*****Displaying all the books*****");
 			displayAll();
@@ -74,14 +68,6 @@ public class BookMain {
 		System.out.println("Book name is "+name+" Id is "+id+" cost is "+cost);
 		Author author = book.getAuthor();
 		System.out.println("Author name is "+author.getName()+" Id is "+author.getId());
-		if(book instanceof FictionBook) {
-			FictionBook fb = (FictionBook)book;
-			System.out.println("Character is "+fb.getCharacterName());
-		}
-		if(book instanceof ItBook) {
-			ItBook ib = (ItBook)book;
-			System.out.println("Language is "+ib.getLanguage()+" Version is "+ib.getVersion());
-		}
 		}
 
 }

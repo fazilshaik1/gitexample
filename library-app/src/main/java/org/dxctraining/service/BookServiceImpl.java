@@ -12,27 +12,27 @@ public class BookServiceImpl implements IBookService {
 	@Override
 	public List<Book> findAll() {
 		List<Book> list = dao.findAll();
-		return null;
+		return list;
 	}
 
 	@Override
-	public void add(Book book) {
+	public void addBook(Book book) {
 		checkBook(book);
-		dao.add(book);
+		dao.addBook(book);
 		
 	}
 
 	@Override
-	public Book update(Book book) {
+	public Book updateBook(Book book) {
 		checkBook(book);
-		book =dao.update(book);
+		book =dao.updateBook(book);
 		return book;
 	}
 
 	@Override
-	public void delete(Book book) {
+	public void deleteBook(Book book) {
 		checkBook(book);
-		dao.delete(book);
+		dao.deleteBook(book);
 	}
 
 	private void checkBook(Book book) {
@@ -42,29 +42,29 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
-	public Book updateCost(String id, double cost) {
+	public Book updateBookCost(String id, double cost) {
 		checkId(id);
 		checkCost(cost);
-		Book book=dao.updateCost(id, cost);
+		Book book=dao.updateBookCost(id, cost);
 		return book;
 	}
 
 	private void checkCost(double cost) {
-		if (cost<1) {
+		if (cost<0) {
 			throw new InvalidBookArgumentException("cost is negative");
 		}
 		
 	}
 
 	@Override
-	public Book findById(String id) {
+	public Book findBookId(String id) {
 		checkId(id);
-		Book book = dao.findById(id);
+		Book book = dao.findBookId(id);
 		return book;
 	}
 
 	private void checkId(String id) {
-		if(id==null) {
+		if(id==null || id.isEmpty()) {
 			throw new InvalidBookArgumentException("id is null");
 				}
 	}

@@ -4,11 +4,11 @@ import org.dxctraining.entities.*;
 import java.util.*;
 
 public interface IBookDao {
-	Book findById(String id);
+	Book findBookId(String id);
 	List<Book> findAll();
-	Book updateCost(String id,double cost);
-	void add(Book book);
-	Book update(Book book);
-	void delete(Book book);
+	Book updateBookCost(String id,double cost);
+	void addBook(Book book);
+	Book updateBook(Book book);
+	void deleteBook(Book book);
 
 }
