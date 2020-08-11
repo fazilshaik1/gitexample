@@ -3,7 +3,9 @@ package org.dxctraining.dao;
 import java.util.*;
 import org.dxctraining.entities.*;
 import org.dxctraining.exceptions.*;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BookDaoImpl implements IBookDao {
 	private Map<String,Book> store = new HashMap<>();
 	private int generateid;

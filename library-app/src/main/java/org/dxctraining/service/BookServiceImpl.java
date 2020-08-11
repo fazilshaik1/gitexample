@@ -3,10 +3,12 @@ package org.dxctraining.service;
 import java.util.List;
 import org.dxctraining.dao.*;
 import org.dxctraining.exceptions.*;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.dxctraining.entities.Book;
-
+@Service
 public class BookServiceImpl implements IBookService {
+	@Autowired
 	private IBookDao dao =new BookDaoImpl();
 
 	@Override
